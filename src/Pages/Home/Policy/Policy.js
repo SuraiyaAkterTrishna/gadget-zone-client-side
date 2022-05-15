@@ -1,4 +1,5 @@
 import React from 'react';
+import policy1 from '../../../images/logos/policy1.png';
 
 const Policy = () => {
     return (
@@ -10,7 +11,7 @@ const Policy = () => {
                 <div className="col-12 col-md-6 col-lg-4">
                     <div className="d-flex justify-content-between align-items-center">
                         <div>
-                            <img width="100px" src="" alt="" />
+                            <img width="100px" src={policy1} alt="" />
                         </div>
                         <div className="ps-3">
                             <p className="h4 fw-bold">Fully responsive</p>
