@@ -6,6 +6,7 @@ import Login from './Pages/LogIn/Login/Login';
 import Register from './Pages/LogIn/Register/Register';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import InventoryItems from './Pages/Home/InventoryItems/InventoryItems';
+import InventoryItemDetail from './Pages/Home/InventoryItemDetail/InventoryItemDetail';
 import Blogs from './Pages/Blogs/Blogs';
 import About from './Pages/About/About';
 import NotFound from './Pages/NotFound/NotFound';
@@ -18,15 +19,19 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
-        <Route path='/checkout' element={
+        <Route path="/inventory" element={<InventoryItems></InventoryItems>}></Route>
+        <Route path='/inventory-item/:id' element={
           <RequireAuth>
-            <CheckOut></CheckOut>
+            <InventoryItemDetail></InventoryItemDetail>
           </RequireAuth>
         }></Route>
-        <Route path="/inventory-items" element={<InventoryItems></InventoryItems>}></Route>
+        <Route path='/inventory/inventory-item/:id' element={
+          <RequireAuth>
+            <InventoryItemDetail></InventoryItemDetail>
+          </RequireAuth>
+        }></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>

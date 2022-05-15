@@ -1,12 +1,13 @@
 .service-btn {
+    width: 100%;
     outline: none;
     color: white;
     font-weight: bold;
     padding: 10px 25px;
     letter-spacing: 1px;
     cursor: pointer;
-    background-color: green;
-    border: 2px solid green;
+    background-color: #0275d8;
+    border: 2px solid #0275d8;
     font-size: 15px;
     border-radius: 15px;
 }
@@ -19,6 +20,6 @@
     font-size: 15px;
     border-radius: 15px;
     background-color: #fff;
-    border: 2px solid green;
-    color: green;
+    border: 2px solid #0275d8;
+    color: #0275d8;
 }
