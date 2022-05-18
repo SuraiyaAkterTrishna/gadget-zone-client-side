@@ -8,11 +8,12 @@ const SocialLogin = () => {
     const navigate = useNavigate();
     const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
     let errorElement;
-    if (error) {
-        errorElement = <p className='text-danger'>Error: {error.message}</p>
-    }
+    
     if (user) {
-        navigate('/checkout');
+        navigate('/');
+    }
+    if (error) {
+        errorElement = <p className='text-danger'>{error.message}</p>
     }
     return (
         <div>
@@ -24,9 +25,9 @@ const SocialLogin = () => {
                 {errorElement}
             </div>
             <div className='w-50 mx-auto d-flex align-items-center'>
-                <div style={{ height: '1px', background: 'green', width: '50%' }} ></div>
-                <p className='mt-3 px-2 text-success'>OR</p>
-                <div style={{ height: '1px', background: 'green', width: '50%' }} ></div>
+                <div style={{ height: '1px', background: 'blue', width: '50%' }} ></div>
+                <p className='mt-3 px-2 text-primary'>OR</p>
+                <div style={{ height: '1px', background: 'blue', width: '50%' }} ></div>
             </div>
         </div>
     );

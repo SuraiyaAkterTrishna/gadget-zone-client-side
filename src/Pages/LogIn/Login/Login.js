@@ -24,7 +24,7 @@ const Login = () => {
 
   let errorElement;
   if (error) {
-    errorElement = <p className='text-danger'>Error: {error.message}</p>
+    errorElement = <p className='text-danger'>{error.message}</p>
   }
 
   if (user) {
@@ -52,7 +52,7 @@ const Login = () => {
   }
   return (
     <div className="container mt-5">
-      <h1 className="text-center text-success">Please Log In</h1>
+      <h1 className="text-center text-primary">Please Log In</h1>
       <SocialLogin></SocialLogin>
 
       <Form onSubmit={handleSubmit} className="w-50 mx-auto">
@@ -72,7 +72,7 @@ const Login = () => {
         </Form.Group>
         {errorElement}
         {toast}
-        <Button className="w-50 d-block m-2 mx-auto" variant="success" type="submit">
+        <Button className="w-50 d-block m-2 mx-auto" variant="primary" type="submit">
           Login
         </Button>
         <p>Forget Password? <button to='/register' onClick={handleForgetPassword} className="btn btn-text text-primary text-decoration-none">Reset Password</button></p>

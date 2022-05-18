@@ -1,9 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { useSendEmailVerification } from 'react-firebase-hooks/auth';
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -17,10 +19,11 @@ const Register = () => {
     errorElement = <p className='text-danger'>Error: {error.message}</p>
   }
   if (user) {
-    navigate('/home');
+    SendEmailVerification();
+    navigate('/');
   }
   const emailRef = useRef();
-  const passwordRef = useRef(); 
+  const passwordRef = useRef();
   const handleSubmit = (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
@@ -30,10 +33,38 @@ const Register = () => {
   const navigateLogin = event => {
     navigate('/login');
   }
+  const SendEmailVerification = () => {
+    const [sendEmailVerification, sending, error] = useSendEmailVerification(
+      auth
+    );
+  
+    if (error) {
+      return (
+        <div>
+          <p> {error.message}</p>
+        </div>
+      );
+    }
+    if (sending) {
+      return <p>Sending...</p>;
+    }
+    return (
+      <div className="App">
+        <button
+          onClick={async () => {
+            await sendEmailVerification();
+            alert('Sent email');
+          }}
+        >
+          Verify email
+        </button>
+      </div>
+    );
+  };
   return (
     <div>
       <div className="container mt-5">
-        <h1 className="text-center text-success">Registration</h1>
+        <h1 className="text-center text-primary">Registration</h1>
         <SocialLogin></SocialLogin>
         <Form onSubmit={handleSubmit} className="w-50 mx-auto">
           <Form.Group className="mb-3" controlId="formBasicName">
