@@ -44,10 +44,37 @@ const InventoryItemDetail = () => {
         }
 
     }
-    
-  const emailRef = useRef();
-    const handleRestock = () =>{
 
+    const restockRef = useRef();
+    const handleRestock = (event) => {
+        event.preventDefault();
+        const restock = restockRef.current.value;
+        const newQuantity = parseInt(restock)+parseInt(item.quantity);
+        console.log(newQuantity);
+        const updateItem = {
+            "_id": item._id,
+            "name": item.name,
+            "image": item.image,
+            "description": item.description,
+            "price": item.price,
+            "quantity": newQuantity,
+            "supplierName": item.supplierName
+        }
+        setItem(updateItem);
+        //send data to the server
+        const url = `http://localhost:5000/item/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateItem)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast('item Restock');
+                event.target.reset();
+            })
     }
     return (
         <div>
@@ -64,10 +91,10 @@ const InventoryItemDetail = () => {
                         <Button onClick={() => updateQuantity(item)} className="d-block m-2 mx-auto" variant="primary">
                             Delivered
                         </Button>
-                        <Form onSubmit={handleRestock} className="w-50 mx-auto">
+                        <Form onSubmit={handleRestock} className="w-25 mx-auto">
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Restock</Form.Label>
-                                <Form.Control ref={emailRef} type="email" placeholder="Enter restock quantity" required />
+                                <Form.Label>Restock Item</Form.Label>
+                                <Form.Control ref={restockRef} type="text" placeholder="Enter restock quantity" required />
                             </Form.Group>
                             <Button className="w-50 d-block m-2 mx-auto" variant="primary" type="submit">
                                 Restock
