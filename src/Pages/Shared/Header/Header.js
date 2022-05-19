@@ -4,6 +4,7 @@ import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { Container, Nav, Navbar} from "react-bootstrap";
+import { Link } from "react-router-dom";
 const Header = () => {
   const [user] = useAuthState(auth);
   const handleSignOut = () => {
@@ -23,6 +24,12 @@ const Header = () => {
               <Nav.Link href="/about">About Me</Nav.Link>
             </Nav>
             <Nav>
+              {
+                user && <>
+                <Nav.Link as={Link} to="/add-item">Add</Nav.Link>
+                <Nav.Link as={Link} to="/manage-item">Manage</Nav.Link>
+                </>
+              }
               {
                 user ?
                 <button onClick={handleSignOut} className='btn btn-link text-white text-decoration-none'>Sign Out</button> 

@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const Additem = () => {
+const AddItem = () => {
     const nameRef = useRef();
     const imageRef = useRef();
     const descriptionRef = useRef();
@@ -82,4 +81,4 @@ const Additem = () => {
     );
 };
 
-export default Additem;
+export default AddItem;

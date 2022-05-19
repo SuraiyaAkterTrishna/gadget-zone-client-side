@@ -4,7 +4,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from "react-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
@@ -77,7 +77,6 @@ const Login = () => {
         </Button>
         <p>Forget Password? <button to='/register' onClick={handleForgetPassword} className="btn btn-text text-primary text-decoration-none">Reset Password</button></p>
         <p>New to Gadget Zone? <Link to='/register' onClick={navigateRegister} className="text-primary text-decoration-none">Register Now</Link></p>
-        <ToastContainer></ToastContainer>
       </Form>
     </div>
   );

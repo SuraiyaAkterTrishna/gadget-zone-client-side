@@ -1,70 +1,38 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
-import { useSendEmailVerification } from 'react-firebase-hooks/auth';
 
 
 const Register = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  let from = location.state?.from?.pathname || "/";
-  const SendEmailVerification = () => {
-    const [sendEmailVerification, sending, error] = useSendEmailVerification(
-      auth
-    );
-  
-    if (error) {
-      return (
-        <div>
-          <p> {error.message}</p>
-        </div>
-      );
-    }
-    if (sending) {
-      return <p>Sending...</p>;
-    }
-    return (
-      <div className="App">
-        <button
-          onClick={async () => {
-            await sendEmailVerification();
-            alert('Sent email');
-          }}
-        >
-          Verify email
-        </button>
-      </div>
-    );
-  };
   const [
     createUserWithEmailAndPassword,
     user,
-    error,
   ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  let errorElement;
-  if (error) {
-    errorElement = <p className='text-danger'>Error: {error.message}</p>
-  }
-  if (user) {
-    SendEmailVerification();
-    navigate(from, { replace: true });
-  }
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-    createUserWithEmailAndPassword(email, password);
-  };
-  const navigateLogin = event => {
+  const [updateProfile] = useUpdateProfile(auth);
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  const navigateLogin = () => {
     navigate('/login');
   }
-  
+  if (user) {
+    navigate(from, { replace: true });
+  }
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const name = emailRef.current.value;
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name })
+  };
+
   return (
     <div>
       <div className="container mt-5">
@@ -73,7 +41,7 @@ const Register = () => {
         <Form onSubmit={handleSubmit} className="w-50 mx-auto">
           <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter name" />
+            <Form.Control type="text" ref={nameRef} placeholder="Enter name" />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -90,7 +58,6 @@ const Register = () => {
               required
             />
           </Form.Group>
-          {errorElement}
 
           <Button className="w-50 d-block m-2 mx-auto" variant="success" type="submit">
             Register
