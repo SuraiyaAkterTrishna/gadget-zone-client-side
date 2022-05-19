@@ -4,7 +4,7 @@ import InventoryItem from '../InventoryItem/InventoryItem';
 const InventoryItems = () => {
     const [inventoryItems, setInventoryItems] = useState([]);
     useEffect( () => {
-        fetch('services.json')
+        fetch('http://localhost:5000/item')
         .then(res=> res.json())
         .then(data => setInventoryItems(data));
     } , [])
@@ -15,7 +15,7 @@ const InventoryItems = () => {
                 {
                     inventoryItems.map(inventoryItem => <InventoryItem
                         inventoryItem = {inventoryItem}
-                        key = {inventoryItem.id}
+                        key = {inventoryItem._id}
                     ></InventoryItem>)
                 }
             </div>

@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -9,30 +9,9 @@ import { useSendEmailVerification } from 'react-firebase-hooks/auth';
 
 const Register = () => {
   const navigate = useNavigate();
-  const [
-    createUserWithEmailAndPassword,
-    user,
-    error,
-  ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  let errorElement;
-  if (error) {
-    errorElement = <p className='text-danger'>Error: {error.message}</p>
-  }
-  if (user) {
-    SendEmailVerification();
-    navigate('/');
-  }
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-    createUserWithEmailAndPassword(email, password);
-  };
-  const navigateLogin = event => {
-    navigate('/login');
-  }
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
   const SendEmailVerification = () => {
     const [sendEmailVerification, sending, error] = useSendEmailVerification(
       auth
@@ -61,6 +40,31 @@ const Register = () => {
       </div>
     );
   };
+  const [
+    createUserWithEmailAndPassword,
+    user,
+    error,
+  ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  let errorElement;
+  if (error) {
+    errorElement = <p className='text-danger'>Error: {error.message}</p>
+  }
+  if (user) {
+    SendEmailVerification();
+    navigate(from, { replace: true });
+  }
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    createUserWithEmailAndPassword(email, password);
+  };
+  const navigateLogin = event => {
+    navigate('/login');
+  }
+  
   return (
     <div>
       <div className="container mt-5">

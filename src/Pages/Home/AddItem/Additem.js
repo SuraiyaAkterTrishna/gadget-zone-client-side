@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Additem = () => {
     const nameRef = useRef();
@@ -9,7 +11,6 @@ const Additem = () => {
     const priceRef = useRef();
     const quantityRef = useRef();
     const supplierNameRef = useRef();
-    const navigate = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault();
         const name = nameRef.current.value;
@@ -18,8 +19,23 @@ const Additem = () => {
         const price = priceRef.current.value;
         const quantity = quantityRef.current.value;
         const supplierName = supplierNameRef.current.value;
-        console.log(name, image, description, price, quantity, supplierName);
-        navigate('/inventory');
+        const item = {
+            name: name,
+            image: image,
+            description: description,
+            price: price,
+            quantity: quantity,
+            supplierName: supplierName
+        }
+        console.log(item);
+        axios.post('http://localhost:5000/item', item)
+        .then(response =>{
+            const {data}= response;
+            if(data.insertedId){
+                toast('Your item is added!');
+                event.target.reset();
+            }
+        })
     };
     return (
         <div>
@@ -38,7 +54,8 @@ const Additem = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicDescription">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control ref={descriptionRef} type="text-area" placeholder="Enter Product Description" />
+                        <Form.Control as="textarea" style={{ height: '100px' }} ref={descriptionRef} type="text-area" placeholder="Enter Product Description" />
+                        
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPrice">
