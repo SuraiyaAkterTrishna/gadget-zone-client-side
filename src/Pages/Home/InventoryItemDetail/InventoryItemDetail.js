@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Button, Form, FormControl, InputGroup, Stack } from 'react-bootstrap';
+import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const InventoryItemDetail = () => {
@@ -39,7 +39,7 @@ const InventoryItemDetail = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    toast('item delivered');
+                    toast('item delivered Successfully!!!');
                 })
         }
 
@@ -49,7 +49,7 @@ const InventoryItemDetail = () => {
     const handleRestock = (event) => {
         event.preventDefault();
         const restock = restockRef.current.value;
-        const newQuantity = parseInt(restock)+parseInt(item.quantity);
+        const newQuantity = parseInt(restock) + parseInt(item.quantity);
         console.log(newQuantity);
         const updateItem = {
             "_id": item._id,
@@ -72,7 +72,7 @@ const InventoryItemDetail = () => {
         })
             .then(res => res.json())
             .then(data => {
-                toast('item Restock');
+                toast('Item Restock Successfully!!!');
                 event.target.reset();
             })
     }
@@ -88,22 +88,31 @@ const InventoryItemDetail = () => {
                         <p className="card-text">Price: ${price}</p>
                         <p className="card-text">Quantity: {quantity}</p>
                         <p className="card-text">{description}</p>
-                        <Button onClick={() => updateQuantity(item)} className="d-block m-2 mx-auto" variant="primary">
-                            Delivered
-                        </Button>
-                        <Form onSubmit={handleRestock} className="w-25 mx-auto">
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>Restock Item</Form.Label>
-                                <Form.Control ref={restockRef} type="text" placeholder="Enter restock quantity" required />
-                            </Form.Group>
-                            <Button className="w-50 d-block m-2 mx-auto" variant="primary" type="submit">
-                                Restock
-                            </Button>
-                        </Form>
+
+                        <Stack className="w-50 mx-auto" direction="horizontal" gap={5}>
+                            <Form onSubmit={handleRestock} >
+                                <Stack direction="horizontal" gap={2}>
+                                    <Form.Group controlId="formBasicEmail">
+                                        <Form.Control ref={restockRef} type="text" placeholder="Enter restock quantity" required />
+                                    </Form.Group>
+                                    <Button variant="primary" type="submit">
+                                        Restock
+                                    </Button>
+                                </Stack>
+                            </Form>
+                            <Stack direction="horizontal" gap={3}>
+                                <Button onClick={() => updateQuantity(item)} variant="primary">
+                                    Delivered
+                                </Button>
+                                <Link to='/manage-inventories'><button className='btn btn-primary'>Manage Inventories</button></Link>
+                            </Stack>
+                        </Stack>
+
+
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
