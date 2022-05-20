@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -15,11 +14,11 @@ const InventoryItems = () => {
                     inventoryItems.map(inventoryItem => <InventoryItem
                         inventoryItem = {inventoryItem}
                         key = {inventoryItem._id}
-                    ></InventoryItem>)
+                    ></InventoryItem>).slice(0, 6)
                 }
             </div>
             <div className="d-flex flex-row-reverse my-5">
-                <Link to='/manage-inventories'><button className='btn btn-primary'>Manage Inventories <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon> </button></Link>
+                <Link to='/manage-items'><button className='btn btn-primary'>Manage Inventories <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon> </button></Link>
             </div>
         </div>
     );

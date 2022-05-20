@@ -7,7 +7,7 @@ const useInventoryItems = () => {
             .then(res => res.json())
             .then(data => setInventoryItems(data));
     }, [])
-    return [inventoryItems];
+    return [inventoryItems, setInventoryItems];
 };
 
 export default useInventoryItems;

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Button, Form, FormControl, InputGroup, Stack } from 'react-bootstrap';
+import { Button, Form, Stack } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -104,7 +104,7 @@ const InventoryItemDetail = () => {
                                 <Button onClick={() => updateQuantity(item)} variant="primary">
                                     Delivered
                                 </Button>
-                                <Link to='/manage-inventories'><button className='btn btn-primary'>Manage Inventories</button></Link>
+                                <Link to='/manage-items'><button className='btn btn-primary'>Manage Inventories</button></Link>
                             </Stack>
                         </Stack>
 
