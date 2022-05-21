@@ -1,75 +1,80 @@
 import React from 'react';
 import policy1 from '../../../images/logos/policy1.png';
+import policy2 from '../../../images/logos/policy2.png';
+import policy3 from '../../../images/logos/policy3.png';
+import policy4 from '../../../images/logos/policy4.jpg';
+import policy5 from '../../../images/logos/policy5.jpg';
+import policy6 from '../../../images/logos/policy6.jpg';
 
 const Policy = () => {
     return (
         <div className="container">
-            <h2 className="text-center display-4 fw-bolder mb-2">Main Features</h2>
-            <p className="text-center h5 pb-5 text-secondary">Square's beautiful visual design style is built on feature rich, flexible foundations.
+            <h1 className="text-center text-primary mt-5 mb-3">Our Policy</h1>
+            <p className="text-center h5 pb-5 text-secondary">Gadget Zone can provide you such massive collection of global brands and such massive collection of products.
             </p>
             <div className="row gy-5 align-items-center">
                 <div className="col-12 col-md-6 col-lg-4">
                     <div className="d-flex justify-content-between align-items-center">
                         <div>
-                            <img width="100px" src={policy1} alt="" />
+                            <img className='scalable-img' width="100px" src={policy1} alt="" />
                         </div>
                         <div className="ps-3">
-                            <p className="h4 fw-bold">Fully responsive</p>
-                            <p className="text-secondary">Square stays beautiful on all screen sizes across all devices</p>
+                            <p className="h4 fw-bold">Worldwide Delivery</p>
+                            <p className="text-secondary">We work with the biggest delivery networks. It doesn't matter where in the world you are.</p>
                         </div>
                     </div>
                 </div>
                 <div className="col-12 col-md-6 col-lg-4">
                     <div className="d-flex justify-content-between align-items-center">
                         <div>
-                            <img width="100px" src="" alt="" />
+                            <img className='scalable-img' width="100px" src={policy2} alt="" />
                         </div>
                         <div className="ps-3">
-                            <p className="h4 fw-bold">Latest Bootstrap</p>
-                            <p className="text-secondary">The latest version of Bootstrap has you covered for all eventualities</p>
+                            <p className="h4 fw-bold">Free Shipping</p>
+                            <p className="text-secondary">Stop wondering about shipping costs, what you see is what you pay.</p>
                         </div>
                     </div>
                 </div>
                 <div className="col-12 col-md-6 col-lg-4">
                     <div className="d-flex justify-content-between align-items-center">
                         <div>
-                            <img width="100px" src="logos/edit.png" alt="" /></div>
+                            <img className='scalable-img' width="100px" src={policy3} alt="" /></div>
                         <div className="ps-3">
-                            <p className="h4 fw-bold">100% customizable</p>
-                            <p className="text-secondary">A vast set of components makes your imagination the only restriction.</p>
+                            <p className="h4 fw-bold">Money back Guaranty</p>
+                            <p className="text-secondary">Got a problem with the product? Don't worry, we have a 30 day money back guarantee.</p>
                         </div>
                     </div>
                 </div>
                 <div className="col-12 col-md-6 col-lg-4">
                     <div className="d-flex justify-content-between align-items-center">
                         <div>
-                            <img width="100px" src="logos/sass.png" alt="" />
+                            <img className='scalable-img' width="100px" src={policy4} alt="" />
                         </div>
                         <div className="ps-3">
-                            <p className="h4 fw-bold">Built with Sass</p>
-                            <p className="text-secondary">Take full advantage of Sass- just like Bootstrap and Us ;</p>
+                            <p className="h4 fw-bold">Huge Sales Network</p>
+                            <p className="text-secondary">As of February 2022, Gadget Zone has over 115 showrooms in Bangladesh. All these showrooms are completely managed by our own staffs.</p>
                         </div>
                     </div>
                 </div>
                 <div className="col-12 col-md-6 col-lg-4">
                     <div className="d-flex justify-content-between align-items-center">
                         <div>
-                            <img width="100px" src="logos/browser.png" alt="" />
+                            <img className='scalable-img' width="100px" src={policy5} alt="" />
                         </div>
                         <div className="ps-3">
-                            <p className="h4 fw-bold">Cross-browser compatible</p>
-                            <p className="text-secondary">Compatible across all modern browsers, including Edge and IE10+</p>
+                            <p className="h4 fw-bold">Trained Professionals</p>
+                            <p className="text-secondary">Being the authorized distributor of all major global brands, our staffs are directly trained by the global brands to ensure superior customer satisfaction.</p>
                         </div>
                     </div>
                 </div>
                 <div className="col-12 col-md-6 col-lg-4">
                     <div className="d-flex justify-content-between align-items-center">
                         <div>
-                            <img width="100px" src="logos/accessible.png" alt="" />
+                            <img className='scalable-img' width="100px" src={policy6} alt="" />
                         </div>
                         <div className="ps-3">
-                            <p className="h4 fw-bold">Accessible</p>
-                            <p className="text-secondary">Square is open to all with accessibility central to the design</p>
+                            <p className="h4 fw-bold">Largest Collection</p>
+                            <p className="text-secondary">Our honorable customers can enjoy a huge collection of over 700 electronics and electrical products.</p>
                         </div>
                     </div>
                 </div>

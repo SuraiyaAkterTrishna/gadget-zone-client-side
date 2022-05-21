@@ -7,7 +7,6 @@ import Register from './Pages/LogIn/Register/Register';
 import InventoryItems from './Pages/Home/InventoryItems/InventoryItems';
 import InventoryItemDetail from './Pages/Home/InventoryItemDetail/InventoryItemDetail';
 import Blogs from './Pages/Blogs/Blogs';
-import About from './Pages/About/About';
 import NotFound from './Pages/NotFound/NotFound';
 import RequireAuth from './Pages/LogIn/RequireAuth/RequireAuth';
 import Footer from './Pages/Shared/Footer/Footer';
@@ -15,6 +14,8 @@ import AddItem from './Pages/Home/AddItem/AddItem';
 import MyInventory from './Pages/Home/MyInventory/MyInventory';
 import ManageInventories from './Pages/Home/ManageInventories/ManageInventories';
 import { ToastContainer } from 'react-toastify';
+import Gallery from './Pages/Home/Gallery/Gallery';
+import Policy from './Pages/Home/Policy/Policy';
 
 function App() {
   return (
@@ -50,8 +51,9 @@ function App() {
             <AddItem></AddItem>
           </RequireAuth>
         }></Route>
+        <Route path='/gallery' element={<Gallery></Gallery>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
-        <Route path='/about' element={<About></About>}></Route>
+        <Route path='/policy' element={<Policy></Policy>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

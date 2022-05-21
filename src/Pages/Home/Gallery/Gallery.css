@@ -1,0 +1,6 @@
+.scalable-img {
+    transition: .5s;
+}
+.scalable-img:hover {
+    transform:scale(1.1);
+  }

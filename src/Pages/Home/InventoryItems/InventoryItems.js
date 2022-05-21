@@ -7,8 +7,8 @@ import useInventoryItems from '../../utilities/useInventoryItems';
 const InventoryItems = () => {
     const [inventoryItems] = useInventoryItems();
     return (
-        <div className="container my-5">
-            <h1 className="text-center text-primary">Inventory Items</h1>
+        <div className="container">
+            <h1 className="text-center text-primary my-5">Inventory Items</h1>
             <div className="row">
                 {
                     inventoryItems.map(inventoryItem => <InventoryItem
