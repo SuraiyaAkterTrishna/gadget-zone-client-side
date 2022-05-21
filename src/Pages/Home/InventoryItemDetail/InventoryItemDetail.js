@@ -50,7 +50,6 @@ const InventoryItemDetail = () => {
         event.preventDefault();
         const restock = restockRef.current.value;
         const newQuantity = parseInt(restock) + parseInt(item.quantity);
-        console.log(newQuantity);
         const updateItem = {
             "_id": item._id,
             "name": item.name,
@@ -78,9 +77,9 @@ const InventoryItemDetail = () => {
     }
     return (
         <div>
-            <h2>Product Detail: {item.name}</h2>
+            <h1 className='text-primary text-center my-3'>Inventory Item Detail</h1>
             <div className='text-center'>
-                <div className="card mb-3">
+                <div className="card mb-3 col-md-8 mx-auto">
                     <img src={image} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h4 className="card-title">{name}</h4>
@@ -89,11 +88,11 @@ const InventoryItemDetail = () => {
                         <p className="card-text">Quantity: {quantity}</p>
                         <p className="card-text">{description}</p>
 
-                        <Stack className="w-50 mx-auto" direction="horizontal" gap={5}>
+                        <Stack className="col-md-8 col-sm-12 mx-auto" direction="horizontal" gap={5}>
                             <Form onSubmit={handleRestock} >
                                 <Stack direction="horizontal" gap={2}>
                                     <Form.Group controlId="formBasicEmail">
-                                        <Form.Control ref={restockRef} type="text" placeholder="Enter restock quantity" required />
+                                        <Form.Control ref={restockRef} type="text" placeholder="Enter quantity" required />
                                     </Form.Group>
                                     <Button variant="primary" type="submit">
                                         Restock
@@ -104,7 +103,7 @@ const InventoryItemDetail = () => {
                                 <Button onClick={() => updateQuantity(item)} variant="primary">
                                     Delivered
                                 </Button>
-                                <Link to='/manage-items'><button className='btn btn-primary'>Manage Inventories</button></Link>
+                                <Link to='/manage-items'><button className='btn btn-primary'>Manage</button></Link>
                             </Stack>
                         </Stack>
 

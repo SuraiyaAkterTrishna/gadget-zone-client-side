@@ -14,7 +14,7 @@ const InventoryItems = () => {
                     inventoryItems.map(inventoryItem => <InventoryItem
                         inventoryItem = {inventoryItem}
                         key = {inventoryItem._id}
-                    ></InventoryItem>).slice(0, 6)
+                    ></InventoryItem>)
                 }
             </div>
             <div className="d-flex flex-row-reverse my-5">

@@ -9,7 +9,6 @@ const ManageInventories = () => {
     const handleInventoryDelete = id => {
         const proceed = window.confirm("Are you sure You want to delete this item?")
         if(proceed){
-            console.log("deleting id no ",id);
             const url =`http://localhost:5000/item/${id}`;
             fetch(url, {
                 method: 'DELETE'
@@ -47,8 +46,8 @@ const ManageInventories = () => {
                                                         <h5 className="card-title">{inventoryItem.name}</h5>
                                                         <p className="card-text">{inventoryItem.description}</p>
                                                         <p className="card-text"><small className="text-muted">Price: ${inventoryItem.price}</small></p>
-                                                        <p className="card-text"><small className="text-muted">Quantity: ${inventoryItem.quantity}</small></p>
-                                                        <p className="card-text"><small className="text-muted">Supplier Name: ${inventoryItem.supplierName}</small></p>
+                                                        <p className="card-text"><small className="text-muted">Quantity: {inventoryItem.quantity}</small></p>
+                                                        <p className="card-text"><small className="text-muted">Supplier Name: {inventoryItem.supplierName}</small></p>
                                                     </div>
                                                 </div>
                                             </div>

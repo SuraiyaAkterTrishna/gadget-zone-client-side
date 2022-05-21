@@ -59,7 +59,7 @@ const Register = () => {
             />
           </Form.Group>
 
-          <Button className="w-50 d-block m-2 mx-auto" variant="success" type="submit">
+          <Button className="w-50 d-block m-2 mx-auto" variant="primary" type="submit">
             Register
           </Button>
           <p>Already have an account? <Link to='/login' onClick={navigateLogin} className="text-primary text-decoration-none">Log In</Link></p>
