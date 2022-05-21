@@ -1,70 +1,15 @@
-# Getting Started with Create React App
+# Website Name: Gadget Zone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+client-side live website link: [https://warehouse-management-b4b0c.web.app/](https://warehouse-management-b4b0c.web.app/).
 
-## Available Scripts
+## Description:
 
-In the project directory, you can run:
+Gadget Zone website is a warehouse management base website. Here user can sign in freely with user email account. User can see inventory items and new arrival items. Also user can add new inventory item that can show in inventory items section. Also user can manage those inventory items on manage inventory page.Such as delivery items and restock items. Here also an extra Manage Inventories button that can take users to the manage inventory page. In this manage inventory page user can show all inventory items with delete button. Here user can delete any inventory items. There are also my items route that the logged-in user can see only his/her added items. Here also user can delete his/her inventory items.
 
-### `npm start`
+### Features And Functionality:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- For UI design, i use react-bootstrap, bootstrap 5 and vanila CSS and react-fontawesome. Here user stock electronic items, delivared items, add new item and manage those items.
+- For authentication, password rest and email varified i use firebase authentication and react-firebase-hooks. Also use react-firebase-hooks for get loged in users information such as display name, email etc. i also use firebase hosting for client side hosting.
+- In this project i use react-router for routing. And I also use dynamic routing.
+- Also use react-toastify for toast, use axios for fatching data server side to client side and client side to server side, use heroku for hosting server side.
+- I use mongoDB for store data in server side. Here i create some api for store inventory items detail, add new inventory item, update items quantity, store user email, delete inventory item, load all inventory items in client side.
