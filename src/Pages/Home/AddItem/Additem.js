@@ -31,7 +31,7 @@ const AddItem = () => {
             quantity: quantity,
             supplierName: supplierName
         }
-        axios.post('http://localhost:5000/item', item)
+        axios.post('https://sleepy-falls-76816.herokuapp.com/item', item)
         .then(response =>{
             const {data}= response;
             if(data.insertedId){
