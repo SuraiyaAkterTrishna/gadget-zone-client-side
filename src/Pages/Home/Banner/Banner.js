@@ -36,7 +36,7 @@ const Banner = () => {
                 />
                 <div className='carousel-caption'>
                 <Carousel.Caption>
-                    <h5>From $1900</h5>
+                    <h5>From $1000</h5>
                     <h2>Mackbook Air</h2>
                     <p>Powerful creativity and productivity tools live inside every Mac — apps that help you explore, connect, and work more efficiently.</p>
                     <button className="banner-btn">About Me</button>
