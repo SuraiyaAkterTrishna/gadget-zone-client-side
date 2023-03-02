@@ -7,7 +7,7 @@ const InventoryItemDetail = () => {
     const { id } = useParams();
     const [item, setItem] = useState({});
     useEffect(() => {
-        const url = `https://sleepy-falls-76816.herokuapp.com/item/${id}`;
+        const url = `https://gadget-zone.up.railway.app/item/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setItem(data));
@@ -29,7 +29,7 @@ const InventoryItemDetail = () => {
             }
             setItem(updateItem);
             //send data to the server
-            const url = `https://sleepy-falls-76816.herokuapp.com/item/${id}`;
+            const url = `https://gadget-zone.up.railway.app/item/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -61,7 +61,7 @@ const InventoryItemDetail = () => {
         }
         setItem(updateItem);
         //send data to the server
-        const url = `https://sleepy-falls-76816.herokuapp.com/item/${id}`;
+        const url = `https://gadget-zone.up.railway.app/item/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
